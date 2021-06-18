@@ -31,7 +31,7 @@ class YoutubeDLDownloadStatus(Status):
         return MirrorStatus.STATUS_DOWNLOADING
 
     def name(self):
-        return self.obj.name
+        return self.name
 
     def progress_raw(self):
         return self.obj.progress
