@@ -49,7 +49,7 @@ def streamtape(url: str) -> str:
     try:
         file = re.findall('id=([^;]*)&',url)[0].split('&')[0]
         ul = f"https://api.streamtape.com/file/dlticket?file={file}&login={login}&key={key}"
-        tick = requests.get(ul).json['ticket']
+        tick = requests.get(ul).json()['ticket']
         dl = f'https://api.streamtape.com/file/dl?file={file}&tick={tick}'
         return dl
     except KeyError:
