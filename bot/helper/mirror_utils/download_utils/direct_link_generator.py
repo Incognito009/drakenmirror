@@ -37,8 +37,25 @@ def direct_link_generator(link: str):
         return osdn(link)
     elif 'github.com' in link:
         return github(link)
+    elif 'streamtape.com' in link:
+        return streamtape(link)
     else:
         raise DirectDownloadLinkException(f'No Direct link function found for {link}')
+
+
+def streamtape(url: str) -> str:
+    login = 'd6edd3a2bd0687fb2e9e'
+    key = 'MAyeW2D26qHmkBO'
+    try:
+        file = re.findall('id=([^;]*)&',url)[0].split('&')[0]
+        ul = f"https://api.streamtape.com/file/dlticket?file={file}&login={login}&key={key}"
+        ticket = requests.get(ul).json['ticket']
+        dl = f'https://api.streamtape.com/file/dl?file={file}&ticket={ticket}'
+        return dl
+    except KeyError:
+        raise DirectDownloadLinkException("`GAY?`\n")
+
+
 
 
 def zippy_share(url: str) -> str:
