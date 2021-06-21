@@ -47,14 +47,13 @@ def streamtape(url: str) -> str:
     login = 'd6edd3a2bd0687fb2e9e'
     key = 'MAyeW2D26qHmkBO'
     try:
-        file = re.findall('id=([^;]*)&',url)[0].split('&')[0]
+        file = re.findall('e/([^;]*)/', url)[0].split('/', 1)[0]
         ul = f"https://api.streamtape.com/file/dlticket?file={file}&login={login}&key={key}"
-        tick = requests.get(ul).json()['ticket']
-        dl = f'https://api.streamtape.com/file/dl?file={file}&tick={tick}'
+        ticket = requests.get(ul).json()['ticket']
+        dl = f'https://api.streamtape.com/file/dl?file={file}&ticket={ticket}'
         return dl
     except KeyError:
-        raise DirectDownloadLinkException("`IsChuchiGAY?`\n")
-
+        raise DirectDownloadLinkException("`GAY?`\n")
 
 
 
