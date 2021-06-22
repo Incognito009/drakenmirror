@@ -51,10 +51,10 @@ def streamtape(url: str) -> str:
         ul = f"https://api.streamtape.com/file/dlticket?file={file}&login={login}&key={key}"
         ticket = requests.get(ul).json()['result']['ticket']
         dl0 = f'https://api.streamtape.com/file/dl?file={file}&ticket={ticket}'
-        print(dl0)
-        dl = requests.get(dl0).json()['result']['url']
-        return dl
-    except KeyError:
+        dl = requests.get(dl0).json()
+        print(dl, dl0)
+        return dl['result']['url']
+    except:
         raise DirectDownloadLinkException("`GAY?`\n")
 
 
