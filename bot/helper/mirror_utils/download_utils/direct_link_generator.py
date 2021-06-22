@@ -49,8 +49,9 @@ def streamtape(url: str) -> str:
     try:
         file = re.findall('e/([^;]*)/', url)[0].split('/', 1)[0]
         ul = f"https://api.streamtape.com/file/dlticket?file={file}&login={login}&key={key}"
-        ticket = requests.get(ul).json()['ticket']
-        dl = f'https://api.streamtape.com/file/dl?file={file}&ticket={ticket}'
+        ticket = requests.get(ul).json()['result']['ticket']
+        dl0 = f'https://api.streamtape.com/file/dl?file={file}&ticket={ticket}'
+        dl = requests.get(dl0).json()['result']['url']
         return dl
     except KeyError:
         raise DirectDownloadLinkException("`GAY?`\n")
