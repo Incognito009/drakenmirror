@@ -46,17 +46,13 @@ def direct_link_generator(link: str):
 def streamtape(url: str) -> str:
     login = 'd6edd3a2bd0687fb2e9e'
     key = 'MAyeW2D26qHmkBO'
-    try:
-        file = re.findall('e/([^;]*)/', url)[0].split('/', 1)[0]
-        ul = f"https://api.streamtape.com/file/dlticket?file={file}&login={login}&key={key}"
-        ticket = requests.get(ul).json()['result']['ticket']
-        dl0 = f'https://api.streamtape.com/file/dl?file={file}&ticket={ticket}'
-        dl = requests.get(dl0).json()
-        print(dl, dl0)
-        return dl['result']['url']
-    except:
-        raise DirectDownloadLinkException("`GAY?`\n")
-
+    file = re.findall('e/([^;]*)/', url)[0].split('/', 1)[0]
+    ul = f"https://api.streamtape.com/file/dlticket?file={file}&login={login}&key={key}"
+    ticket = requests.get(ul).json()['result']['ticket']
+    dl0 = f'https://api.streamtape.com/file/dl?file={file}&ticket={ticket}'
+    dl = requests.get(dl0).json()
+    print(dl, dl0)
+    return dl['result']['url']
 
 
 def zippy_share(url: str) -> str:
