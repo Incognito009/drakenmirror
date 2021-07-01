@@ -1,0 +1,106 @@
+{
+    "name": "Python-Drive-Bot",
+    "description": "Telegram-Direct-Mirror to G-Drive",
+    "logo": "https://telegra.ph/file/e15e9ac9c5885b015e3ab.jpg",
+    "keywords": [
+      "telegram",
+      "bot",
+      "aria",
+      "python"
+    ],
+    "repository": "https://github.com/ryugujiken/mirrorBotNew",
+    "website": "https://t.me/linux_repo",
+    "success_url": "https://t.me/linux_repo",
+    "stack": "container",
+    "env": {
+      "ENV": {
+      "description": "Setting this to ANYTHING will enable webhooks when in env mode",
+      "value": "ANYTHING"
+    },
+      "BOT_TOKEN": {
+        "description": "The telegram bot token that you get from @BotFather.",
+        "value": "1882115969:AAESTj6JTsi7l5K23E3DLZwGWO0flddcb7E",
+        "required": true
+      },
+      "GDRIVE_FOLDER_ID": {
+        "description": "This is the folder ID of the Google Drive Folder to which you want to upload all the mirrors.",
+        "value": "1QjXyoNtJJx1LEBCrxX-uLbDKs8X9CYyX",
+        "required": true
+      },
+      "DOWNLOAD_DIR": {
+        "description": "The path to the local folder where the downloads should be downloaded to.",
+        "value": "/app/downloads",
+        "required": false
+      },
+      "DOWNLOAD_STATUS_UPDATE_INTERVAL": {
+        "description": "A short interval of time in seconds after which the Mirror progress message is updated. (I recommend to keep it 5 seconds at least).",
+        "value": "5",
+        "required":false
+      },
+      "OWNER_ID": {
+        "description": "The Telegram user ID (not username) of the owner of the bot.",
+        "value": "1703879949",
+        "required": true
+      },
+      "AUTO_DELETE_MESSAGE_DURATION": {
+        "description": "Interval of time (in seconds), after which the bot deletes it's message (and command message) which is expected to be viewed instantly. Note: Set to -1 to never automatically delete messages.",
+        "value": "-1",
+        "required": false
+      },
+      "IS_TEAM_DRIVE": {
+        "description": "Set to 'True' if GDRIVE_FOLDER_ID is from a Team Drive else False or Leave it empty.",
+        "value": "True",
+        "required": false
+      },
+      "USE_SERVICE_ACCOUNTS": {
+        "description": "Whether to use service accounts or not. For this to work see 'Using service accounts' section below.",
+        "value": "",
+        "required": false
+      },
+      "INDEX_URL": {
+        "description": "Refer to https://github.com/maple3142/GDIndex/ The URL should not have any trailing '/'.",
+        "value": "https://ok.draken.workers.dev/0:/",
+        "required": false
+      },
+      "TELEGRAM_API": {
+        "description": "This is to authenticate to your telegram account for downloading Telegram files. You can get this from https://my.telegram.org DO NOT put this in quotes.",
+        "value": "3012719",
+        "required": true
+      },
+      "TELEGRAM_HASH": {
+        "description": "This is to authenticate to your telegram account for downloading Telegram files. You can get this from https://my.telegram.org.",
+        "value": "be3a9dc7a95f9860b98ff709f5cd57aa",
+        "required": true
+      },
+      "TELEGRAPH_TOKEN": {
+        "description": "Open this link to generate telegraph token ==> https://telegraph-token.sonywegas.repl.run",
+        "value": "7612ed1202bb50bd5dd34f9ce726cb08af5d2b0c645b6332f5f98ce018b5",
+        "required": false
+      },
+      "MEGA_API_KEY": {
+        "description": "To authenticate Mega.",
+        "value": "",
+        "required": false
+      },
+      "MEGA_EMAIL_ID": {
+        "description": "Mega Email.",
+        "value": "",
+        "required": false
+      },
+      "MEGA_PASSWORD": {
+        "description": "Mega Password.",
+        "value": "",
+        "required": false
+      },
+      "USER_SESSION_STRING": {
+        "description": "Open this link to generate session string ==> https://string-session.sonywegas.repl.run",
+        "value": "1AZWarzgBu6ES408ekedGgPMJ45jkvnsTaxDGi6l-RgbPLnqX_sloowAiLqO4qYds115He-E070rFZC57zY-ly3QcPWUMYaM1x6tpE90k8IyN6IY0CqX4HbC30WmsW9Zp7GPzrVzqb_JUHpyJ4MrAzkRhE0pBaf4U4qmWwOhHmcgpNSGyEvabEKCdQJO1jiMiJ4i2ljm20NzyUQpV4PuudvIdQe5xWivZ3OG9569ndHZGVuMlzc4wpRBDgw38TdHPXgPIzBqLKrAjTgKTTkW7VBW9B2zSykT3WYY-Bm_S8iHnYuNpk5ApZzdusi0PC0r__bHr7lVreR6jJJJwBrSfSpXrSWPdN20=",
+        "required": true
+      }
+    },
+    "addons": [
+      {
+        "plan": "heroku-postgresql"
+      }
+    ]
+}
